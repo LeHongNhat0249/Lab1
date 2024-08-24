@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Cart.css">
+</head>
+<body>
+    <div id="header">
+        <img src="pngtree-bread-minimalist-literary-white-food-poster-background-image_178414.jpg" alt=""width="1000" height="200">
+        <div id="name">
+            <h1 style="font-family: 'Courier New', monospace;font-size: 50px;">BÁNH MÌ DÂN TỔ</h1>
+            <p style="font-size: 30px;font-family: 'Courier New', monospace;"><b>Đánh đổ dân chơi</b></p>
+        </div>
+    </div>
+    <div id="menu">
+        <ul id="nav">
+            <li ><a href="Home.css">Trang chủ</a></li>
+            <li><a href="Food.html">Đồ ăn</a></li>
+            <li><a href="Drink.html">Đồ uống</a></li>
+            <li>
+                <a href="">Khác</a>
+                <ul class="subnav">
+                    <li><a href="">Thuốc</a></li>
+                    <li><a href="">Topping</a></li>
+                </ul>
+            </li>
+            <li ><a href="index4.html">Gio hàng(<span class="num" style="color: red;"></span>)</a></li>
+          </ul>
+    </div>
+    <div id="topic">
+        <h1>GIỎ HÀNG</h1>
+    </div>
+    <hr>
+    <div id="content">
+        <div id="ineer">
+            <table id="tblCart" style="width: 100%;">
+                
+            </table>
+        </div>
+        <hr>
+        <div style="padding-left: 10px;padding-top: 20px;">
+            <strong>Tổng tiền: <span id="sum"></span> </strong>
+            <button style="border-radius: 4px;
+        background-color: #ebef7a;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        padding: 10px;
+        transition: all 0.5s;
+        cursor: pointer;position: relative;left: 100px;" onclick="clearCart()">Thanh toán</button>
+        </div>
+        
+        
+    </div> 
+      
+</body>
+<script >
+    let num = parseInt(localStorage.getItem("totalQty") )+1 ;
+    let arrCart = JSON.parse(localStorage.getItem("myCart"))||[];
+    console.log(arrCart);
+    document.querySelector(".num").innerHTML = num;
+    let str =
+    `
+    <tr>
+                    <th>Hình</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Gía tiền</th>
+                    <th>Thành tiền</th>
+                    <th></th>
+    </tr>
+
+    `;
+    let sum =0;
+    strData = "";
+    arrCart.forEach(element => {
+        strData += `<tr style="text-align: center;">
+                    <td>
+                        <img src="${element.sp.img}" alt="" width="50px" height="50px">
+                    </td>
+                    <td>${element.sp.name}</td>
+                    <td>
+                        
+                        <input type="number" width="40px" value = "${element.qty}">
+                        
+                    </td>
+                    <td>${element.sp.gia}</td>
+                    <td>${element.sp.gia * element.qty}</td>
+                    <td><button style="border-radius: 4px;
+        background-color: #ebef7a;
+        border: none;
+        text-align: center;
+        padding :8px;
+        color: #FFFFFF;
+        cursor: pointer;" onclick="deleteItem('${element.sp.ma}')" >Xóa</button></td>
+                </tr>
+
+        `
+        sum += element.sp.gia * element.qty;
+    });
+    
+    document.querySelector("#tblCart").innerHTML = str + strData;
+    document.querySelector("#sum").innerHTML = sum;
+    function clearCart() {
+        arrCart = [];
+        num = 0;
+        localStorage.setItem("totalQty", num);
+        localStorage.setItem("myCart", JSON.stringify(arrCart));
+        document.querySelector(".num").innerHTML = num;
+        document.querySelector("#tblCart").innerHTML = str; // Reset table to show only headers
+        document.querySelector("#sum").innerHTML = 0; // Reset total sum to 0
+    }
+    
+    function deleteItem(ma) {
+        for (let i = 0; i < arrCart.length; i++) {
+            if (arrCart[i].sp.ma == ma) {
+                if (arrCart[i].qty > 1) {
+                    arrCart[i].qty--;
+                } else {
+                    arrCart.splice(i, 1);
+                }
+                num--;
+                break;
+            }
+        }
+        localStorage.setItem("totalQty", num);
+        localStorage.setItem("myCart", JSON.stringify(arrCart));
+        location.reload(); // Reload the page to reflect changes
+    }
+    
+    
+</script>
+</html>

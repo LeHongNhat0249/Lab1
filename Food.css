@@ -1,0 +1,119 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-family: 'Courier New', monospace;
+}
+#header{
+    width: 100%;
+    height: 200px;
+    position: relative;
+   
+    
+}
+#header img{
+    
+    height: 200px;
+    width: 100%;
+    image-rendering: crisp-edges;
+}
+#name{
+    position: absolute;
+    top: 50%; /* Đặt phần tử ở giữa theo chiều dọc */
+    left: 50%; /* Đặt phần tử ở giữa theo chiều ngang */
+    transform: translate(-50%, -50%); /* Căn chỉnh chính xác phần tử ở giữa */
+    color: white; /* Màu chữ */
+    padding: 10px; /* Khoảng cách bên trong phần tử */
+    text-align: center;
+}
+#menu {
+    height: 46px;
+    background-color: #ece585;
+}
+#menu li {
+    position: relative;
+    display: inline-block;
+    padding: 0 24px;
+}
+#menu li a {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    line-height: 46px;
+    color: #fff;
+    list-style-type: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    padding: 0 24px;
+}
+#menu ul ul li a {
+    text-align: center;
+    padding: 0 24px;
+}
+#menu li a:hover {
+    background-color: #fff;
+    color: #f1ea2d;
+}
+.subnav {
+    position: absolute;
+    visibility: hidden;
+    background-color:#f1ea2d; 
+}
+#menu li:hover .subnav { 
+    visibility: visible;
+}
+#topic{
+    width: 100%;
+    height: 50px;
+   
+}
+#topic h1{
+    color: #f1ea2d;
+    text-align: center;
+    margin: 12px;
+}
+#pic {
+    /* display: flex;
+    justify-content: center; */
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 50px;
+    text-align: center;
+    width: 100%;
+    padding-top: 10px;
+    padding-left: 100px;
+    
+}
+.pic{
+    text-align: center;
+    height: 350px;
+    border: 1px solid rgb(222, 234, 57);
+    border-radius: 5px;
+    width: 250px;
+
+}
+.pic p {
+    padding: 24px;
+    text-align: center;
+    line-height: 3px;
+}
+.pic button{
+    border-radius: 4px;
+    background-color: #ebef7a;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 10px;
+    transition: all 0.5s;
+    cursor: pointer;
+    
+    
+}
+.content{
+    display: flex;
+    text-align: center;
+ 
+}
+

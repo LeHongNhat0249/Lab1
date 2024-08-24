@@ -1,0 +1,158 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-family: 'Courier New', monospace;
+}
+#header{
+    width: 100%;
+    height: 200px;
+    position: relative;
+   
+    
+}
+#header img{
+    
+    height: 200px;
+    width: 100%;
+    image-rendering: crisp-edges;
+}
+#name{
+    position: absolute;
+    top: 50%; /* Đặt phần tử ở giữa theo chiều dọc */
+    left: 50%; /* Đặt phần tử ở giữa theo chiều ngang */
+    transform: translate(-50%, -50%); /* Căn chỉnh chính xác phần tử ở giữa */
+    color: white; /* Màu chữ */
+    padding: 10px; /* Khoảng cách bên trong phần tử */
+    text-align: center;
+}
+#menu {
+    height: 46px;
+    background-color: #ece585;
+}
+#menu li {
+    position: relative;
+    display: inline-block;
+    padding: 0 24px;
+}
+#menu li a {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    line-height: 46px;
+    color: #fff;
+    list-style-type: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    padding: 0 24px;
+}
+#menu ul ul li a {
+    text-align: center;
+    padding: 0 24px;
+}
+#menu li a:hover {
+    background-color: #fff;
+    color: #f1ea2d;
+}
+.subnav {
+    position: absolute;
+    visibility: hidden;
+    background-color:#f1ea2d; 
+}
+#menu li:hover .subnav { 
+    visibility: visible;
+}
+#pic1{
+    padding: 24px;
+}
+#pic1 img{
+    float: left;
+    height: 300px;
+    width: 30%;
+    border: 1px solid rgb(222, 234, 57);
+    border-radius: 5px;
+    padding:  24px;
+}
+#pic1 p{
+    float: right;
+    height: 300px;
+    width: 70%;
+    padding: 24px;
+}
+#pic2{
+    padding: 24px;
+}
+
+#pic2 img{
+    float: right;
+    height: 300px;
+    width: 30%;
+    border: 1px solid rgb(222, 234, 57);
+    border-radius: 5px;
+    padding:  24px;
+}
+#pic2 p{
+    float: left;
+    height: 300px;
+    width: 70%;
+    padding: 24px;
+}
+#pic{
+    
+    /* display: grid;
+    grid-template-columns: auto auto auto; */
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    width: 100%;
+   gap: 50px;
+}
+#end{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 5px;
+    width: 100%;
+    gap: 10px;
+}
+.container{
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    margin-top: 5px;
+}
+.pic{
+    text-align: center;
+    height: 300px;
+    border: 1px solid rgb(222, 234, 57);
+    border-radius: 5px;
+    width: 250px;
+}
+.pic p {
+    padding: 24px;
+    text-align: center;
+    line-height: 3px;
+}
+.pic button{
+    border-radius: 4px;
+    background-color: #ebef7a;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 10px;
+    transition: all 0.5s;
+    cursor: pointer;
+   
+    
+}
+.content{
+    display: flex;
+    text-align: center;
+    
+   
+   
+}
+
+
